@@ -1,5 +1,5 @@
 ---
-name: Web Reaper
+name: Minahil Malik Nazeba
 theme: dark
 blur: blur
 avatar: ./avatar.jpg
