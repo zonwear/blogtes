@@ -1,0 +1,25 @@
+---
+// main layout
+import BaseLayout from "@layouts/BaseLayout.astro";
+---
+
+<BaseLayout title="404" description="Error 404 page not found." noindex={true}>
+  <div class="relative min-h-[100lvh] bg-white dark:bg-base-950">
+    <section class="site-container pt-36 text-center md:pt-44">
+      <div class="mx-auto max-w-xl px-4 text-center">
+        <h1 class="text-3xl md:text-4xl lg:text-5xl">Page not found!</h1>
+        <p class="mt-4 opacity-80">
+          Apologies, one of our links must have broken. Please try again or go
+          back to the homepage.
+        </p>
+        <div class="mt-8 flex justify-center">
+          <a
+            href="/"
+            class="flex items-center justify-center gap-1 rounded-full bg-btn-light px-5 py-2 text-btn-light-text transition-all duration-300 hover:bg-btn-light-hover active:scale-95 dark:bg-btn-dark dark:text-btn-dark-text dark:hover:bg-btn-dark-hover"
+            >Go to hompage</a
+          >
+        </div>
+      </div>
+    </section>
+  </div>
+</BaseLayout>

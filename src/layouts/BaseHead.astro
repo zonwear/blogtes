@@ -1,0 +1,60 @@
+---
+import { type CollectionEntry } from "astro:content";
+import { ViewTransitions } from "astro:transitions";
+
+// component imports
+import Seo from "@components/Seo/Seo.astro";
+
+export interface Props {
+  title: string;
+  description: string;
+  image?: ImageMetadata;
+  noindex?: boolean;
+}
+
+const { title, description, image, noindex = false } = Astro.props as Props;
+---
+
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width" , initial-scale="1.0" />
+
+<!-- Satoshi font example: https://www.fontshare.com/fonts/satoshi -->
+<!-- <link rel="preconnect" href="https://api.fontshare.com" />
+<link
+  href="https://api.fontshare.com/v2/css?f[]=satoshi@700,500,400&display=swap"
+  rel="stylesheet"
+/> -->
+
+<!-- Favicons. Generated from https://realfavicongenerator.net/ -->
+<link
+  rel="apple-touch-icon"
+  sizes="180x180"
+  href="/favicons/apple-touch-icon.png"
+/>
+<link
+  rel="icon"
+  type="image/png"
+  sizes="32x32"
+  href="/favicons/favicon-32x32.png"
+/>
+<link
+  rel="icon"
+  type="image/png"
+  sizes="16x16"
+  href="/favicons/favicon-16x16.png"
+/>
+<link rel="manifest" href="/favicons/site.webmanifest" />
+<link rel="mask-icon" href="/favicons/safari-pinned-tab.svg" color="#da532c" />
+<link rel="shortcut icon" href="/favicons/favicon.ico" />
+<meta name="msapplication-TileColor" content="#da532c" />
+<meta name="msapplication-config" content="/favicons/browserconfig.xml" />
+<meta name="theme-color" content="#ffffff" />
+
+<!-- other -->
+<meta name="generator" content={Astro.generator} />
+<link rel="sitemap" href="/sitemap-index.xml" />
+
+<Seo title={title} description={description} image={image} noindex={noindex} />
+
+<!-- no fallback as I saw issues with firefox fallback -->
+<ViewTransitions fallback="none" />

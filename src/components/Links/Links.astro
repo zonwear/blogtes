@@ -1,0 +1,37 @@
+---
+import { getCollection } from "astro:content";
+
+const links = await getCollection("links");
+
+const sortedLinks = links.sort((a, b) => {
+  if (a.data.order < b.data.order) {
+    return -1;
+  }
+  if (a.data.order > b.data.order) {
+    return 1;
+  }
+  return 0;
+});
+---
+
+<section id="socials" class="site-container relative pt-4">
+  <ul class="flex flex-col gap-4 text-center">
+    {
+      sortedLinks.map((link) => (
+        <li>
+          <a
+            href={link.data.url}
+            class="flex flex-col items-center justify-center rounded-md bg-btn-light p-2 text-btn-light-text transition-all duration-300 hover:bg-btn-light-hover active:scale-95 dark:bg-btn-dark dark:text-btn-dark-text dark:hover:bg-btn-dark-hover"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <h2 class="text-pretty sm:text-lg">{link.data.title}</h2>
+            <p class="mt-2 max-w-sm text-pretty text-sm leading-snug opacity-80">
+              {link.data.description}
+            </p>
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</section>
